@@ -1,0 +1,148 @@
+
+.navbar {
+	padding: 20px 20px 20px 150px;
+	width: 100%;
+	height: auto;
+	background-color: #2F374A;
+	overflow: auto;
+}
+
+body {
+	font-family: 'Karla', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	background-color: #2ab4f5;
+}
+
+h1, .nav-links, .login {
+	display: inline-block;
+	margin: 0;
+}
+
+.nav {
+	float: right;
+	padding-right: 300px;
+	display: inline-block;
+}
+
+li {
+	color: white;
+	font-family: 'Muli', sans-serif;
+}
+
+.navbar a{
+	text-decoration: none;
+	color: white;
+}
+
+.nav-links a:hover {
+	color: #2ab4f5;
+}
+
+ul, li {
+	list-style-type: none;
+	display: inline;
+	text-align: center;
+	padding-top: 5px;
+	margin: 8px;
+}
+
+button {
+	width: 75px;
+	padding: 5px 5px 5px 5px;
+	border: none;
+	text-decoration: none;
+	background-color: #2ab4f5;
+	border-radius: 2px;
+	font-family: 'Karla', sans-serif;
+	font-size: 11pt;
+}
+
+.registerButton {
+	border: 1px solid #2ab4f5;
+	background-color: #2F374A;
+	transition: 0.5s;
+}
+
+.registerButton:hover {
+	background-color: #2ab4f5;
+}
+
+.container {
+	width: 450px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.login-form {
+	background: #FFF;
+}
+
+.title {
+	background: #2F374A;
+	text-align: center;
+	padding: 15px 0px;
+	border-bottom: 1px solid black;
+}
+
+.title h3 {
+	margin: 0px;
+	color: white;
+}
+
+.form {
+	padding: 20px;
+	overflow: hidden;
+	background-color: #f2f2f2;
+}
+
+.form-input {
+	min-height: 40px;
+	border: none;
+	outline: none;
+	padding: 12px;
+	font-family: 'Karla', sans-serif;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.login-form a {
+	text-decoration: none;
+	color: #858585;
+}
+
+.login-form a:hover, .registerLink a:hover {
+	text-decoration: underline;
+}
+
+
+.sign-in, .register {
+	min-height: 40px;
+	background-color: #2ab4f5;
+	border-radius: 2px;
+	width: 100%;
+	color: white;
+	margin-top: 10px;
+}
+
+.form, .login-form p {
+	color: #858585;
+	text-align: center;
+	font-size: 9pt;
+}
+
+.registerLink a {
+	color: white;
+	text-decoration: none;
+	font-size: 9pt;
+	text-align: center;
+	float: right;
+}
+
+
+
+
+
