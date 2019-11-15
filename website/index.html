@@ -38,13 +38,13 @@
 	
 		<nav class="navbar">
 		
-			<h1><a href="index.html">Mediscreen</a></h1>
+			<h1><a id="title" href="index.html">Mediscreen</a></h1>
 			
 			<div class="nav">
 			<ul class="nav-links">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="#about">About</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#contact">Contact</a></li>
 			</ul>
 			
 			<ul class="login">
@@ -73,31 +73,91 @@
 		</div>
 	</section>
 		
-	<section class="features">
+	<section id="about" class="features">
 		<div class='row'>
-			<div id="about" class='column'>
-				<div class='one-column'>
-					<div class="col-content"><h2>MEDISCREEN PORTAL<h2><img src="images/portal.png"></img><p>
+			<div class="column">
+				<div class="one-column">
+					<div class="col-content"><h2>MEDISCREEN PORTAL</h2><img src="images/portal.png"></img><p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec leo tortor. Curabitur sagittis dictum ultrices. Ut tellus nisl, ullamcorper ut mauris eu, egestas vulputate quam. Nulla id neque id dui rutrum suscipit quis quis nisi. Cras vitae risus tempus, rhoncus dui vel, viverra orci. Sed ut tortor ligula. Aliquam gravida tortor nec erat laoreet finibus. Nam porta faucibus semper. Sed sit amet pretium lectus, a sodales risus.
 					</p><button class="col-button"><a href="scripts/login.php">Login to Portal</a></button></div>
 				</div>
 			</div>
-			<div class='column'>
-				<div class='two-column'>
-					<div class="col-content"><h2>MEDISCREEN PATIENT APP<h2><img src="images/app.png"></img>
+			<div class="column">
+				<div class="two-column">
+					<div class="col-content"><h2>MEDISCREEN PATIENT APP</h2><img src="images/app.png"></img>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec leo tortor. Curabitur sagittis dictum ultrices. Ut tellus nisl, ullamcorper ut mauris eu, egestas vulputate quam. Nulla id neque id dui rutrum suscipit quis quis nisi. Cras vitae risus tempus, rhoncus dui vel, viverra orci. Sed ut tortor ligula. Aliquam gravida tortor nec erat laoreet finibus. Nam porta faucibus semper. Sed sit amet pretium lectus, a sodales risus.
 					</p><button class="col-button"><a href="#">Download the App</a></button></div>
 				</div>
 			</div>
-			<div class='column'>
-				<div class='three-column'>
-					<div class="col-content"><h2>MEDISCREEN AI INTERFACE<h2><img src="images/ai.png"></img><p>
+			<div class="column">
+				<div class="three-column">
+					<div class="col-content"><h2>MEDISCREEN AI INTERFACE</h2><img src="images/ai.png"></img><p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec leo tortor. Curabitur sagittis dictum ultrices. Ut tellus nisl, ullamcorper ut mauris eu, egestas vulputate quam. Nulla id neque id dui rutrum suscipit quis quis nisi. Cras vitae risus tempus, rhoncus dui vel, viverra orci. Sed ut tortor ligula. Aliquam gravida tortor nec erat laoreet finibus. Nam porta faucibus semper. Sed sit amet pretium lectus, a sodales risus.
 					</p><button class="col-button"><a href="#">Find out more</a></button></div>
 				</div>
 			</div>
 		</div>
 	</section>
+	
+	<section id ="contact" class="contact">
+		<div class="row">
+		
+			<div class="column">
+				<div class="one-colummn">
+					<div class="col-content-c"><h1>CONTACT US</h1><br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce orci nulla, euismod feugiat ante sed, lacinia aliquet augue. Quisque vehicula maximus orci quis sollicitudin. Suspendisse potenti. Donec metus augue, varius in erat sit amet, convallis vehicula libero. Pellentesque non tincidunt sem. Nullam tempus sit amet magna a cursus.</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="column">
+				<div class="two-colummn">
+					<div class="col-content-c">
+					
+					<form name="contact-form" id="contact-form" method="post" action="">
+					
+						<div class="form-box">
+							<input type="text" class="form-input" name="name" placeholder="Name" required>
+						</div>	
+						
+						<div class="form-box">
+							<input type="email" class="form-input" name="email" placeholder="Email" required>
+						</div>
+						
+						<div class="form-box">
+							<textarea class="form-input" name="message" placeholder="Message" required></textarea>
+						</div>
+						<div class="form-box">
+							<button type="submit" class="send">Send</button>
+						</div>
+						
+					
+					</form>
+					
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	
+	</section>
+	
+	<footer class="footer">
+	
+
+		<div class="footer-left">
+
+			<p class="footer-links">
+				<a href="index.html">Home</a>
+				-
+				<a href="#about">About</a>
+				-
+				<a href="#contact">Contact</a>
+			</p>
+
+			<p>Mediscreen &copy; 2019</p>
+		</div>
+	
+	</footer>
 	
 	</body>
 	

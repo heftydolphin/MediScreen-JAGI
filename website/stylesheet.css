@@ -116,6 +116,7 @@ button {
 
 .form-input {
 	min-height: 40px;
+	border-radius: 3px;
 	border: none;
 	outline: none;
 	padding: 12px;
@@ -123,6 +124,22 @@ button {
 	width: 100%;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	color: #2F374A;
+	background: transparent;
+	border-bottom: 1px solid #2F374A;
+}
+
+.send {
+	margin-top: 0.8rem;
+	width: 40%;
+	float: right;
+	color: #fff;
+	background-color; #2ab4f5;
+	transition: 0.5s;
+}
+
+.send:hover {
+	background-color: #2F374A;
 }
 
 .login-form a {
@@ -302,6 +319,69 @@ button {
 .col-button:hover {
 	background-color: #13648a;
 }
+
+#title {
+	transition: 0.3s;
+}
+
+#title:hover {
+	border-bottom: 3px solid #2ab4f5;
+}
+
+.contact {
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	padding-left: 20rem;
+	background-color: #AEC9D4;
+}
+
+.contact h1, p {
+	color: #2F374A;
+}
+
+.col-content-c {
+	padding: 1.5rem;
+	text-align: left;
+	font-family: 'Nunito', sans-serif;
+	color: #fff;
+	width: 50%;
+}
+
+.footer {
+	padding-top: 5rem;
+	padding-left: 10rem;
+	padding-right: 10rem;
+	padding-bottom: 5rem;
+	background-color: #2F374A;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.footer-left p{
+	color:  #fff;
+	font-size: 14px;
+	margin: 0;
+}
+
+p.footer-links{
+	font-size:18px;
+	font-weight: bold;
+	color:  #fff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+p.footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+
+
+
+
 
 
 
