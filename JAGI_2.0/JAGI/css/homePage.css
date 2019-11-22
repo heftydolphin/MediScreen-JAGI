@@ -1,5 +1,5 @@
 
-.navbar1 {
+.navbar {
 	padding: 20px 20px 20px 150px;
 	width: 91.2%;
 	height: auto;
@@ -9,17 +9,7 @@
 	position: fixed;
 }
 
-.navbar2 {
-	padding: 20px 20px 20px 150px;
-	width: 100%;
-	height: auto;
-	background-color: #2F374A;
-	overflow: auto;
-	margin: 0;
-	position: fixed;
-}
-
-.navbar1 h1, .navbar2 h1 {
+.navbar h1 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	font-style: normal;
@@ -35,7 +25,7 @@ body {
 	width: 100%;
 	margin: 0px;
 	padding: 0px;
-	background-color: #AEC9D4;
+	background-color: #2ab4f5;
 }
 
 h1, .nav-links, .login {
@@ -57,7 +47,7 @@ li {
 	font-family: 'Nunito', sans-serif;
 }
 
-.navbar1 a, .navbar2 a{
+.navbar a{
 	text-decoration: none;
 	color: white;
 }
@@ -93,10 +83,6 @@ button {
 
 .registerButton:hover {
 	background-color: #2ab4f5;
-}
-
-.re-log a:hover {
-	color: #2ab4f5;
 }
 
 .container {
@@ -190,7 +176,7 @@ button {
 }
 
 .header {
-	background-image: url("images/bg.jpg");
+	background-image: url("../image/bg.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding-top: 10rem;
@@ -391,15 +377,3 @@ p.footer-links a{
 	text-decoration: none;
 	color:  inherit;
 }
-
-.functions {
-	padding-top: 100px;
-}
-
-
-
-
-
-
-
-

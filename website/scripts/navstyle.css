@@ -1,0 +1,63 @@
+.navbar1 {
+	padding: 20px 20px 20px 150px;
+	width: 91.2%;
+	height: auto;
+	background-color: #2F374A;
+	overflow: auto;
+	margin: 0;
+	position: fixed;
+}
+
+.navbar2 {
+	padding: 20px 20px 20px 150px;
+	width: 100%;
+	height: auto;
+	background-color: #2F374A;
+	overflow: auto;
+	margin: 0;
+	position: fixed;
+}
+
+.navbar1 h1, .navbar2 h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 600;
+	letter-spacing: normal;
+	line-height: 32.2px;
+	text-transform: none;
+	color: #FFFFFF;
+}
+
+.navbar1 a, .navbar2 a{
+	text-decoration: none;
+	color: white;
+}
+
+ul, li {
+	list-style-type: none;
+	display: inline;
+	text-align: center;
+	padding-top: 5px;
+	margin: 8px;
+}
+
+.nav {
+	float: right;
+	display: inline-block;
+}
+
+li {
+	color: white;
+	font-family: 'Nunito', sans-serif;
+}
+
+h1, .nav-links, .login {
+	display: inline-block;
+	margin: 0;
+}
+
+h2 {
+	font-family: 'Open Sans', sans-serif;
+}
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link href="../css/loginPage.css" rel="stylesheet"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+   
+	<body>
+        <div class="logo">
+			<img src="../image/JAGI_logo.png" alt="JAGI logo" width= "50px" height= "90px">
+        </div>
+		
+		<h1>LOGIN FORM</h1>
+		
+		<form action="../php/userLogin.php" method="post">
+			
+			<div class="container">
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Email: example@gmail.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+				
+				<div class="tooltip"><label for="password"><b>Password</b></label>
+					<span class="tooltiptext">Must contain: One number, One uppercase, lowercase letter and at least 8 characters</span>
+				</div>
+			
+				<label for="passwordInfo"></label>
+				<input type="password" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+				
+				<!--
+				CODEING NEEDED: Only allow to login if email and password are entered
+				-->
+				<button type="submit" class="loginButton">LOGIN</button>
+			</div>
+			
+			<!-- 
+            <div class="container" style="background-color:#f1f1f1">
+            	<button type="button" class="cancelbtn">Cancel</button>
+            	<span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+            -->
+		</form>
+	</body>
+</html>

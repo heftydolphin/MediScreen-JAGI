@@ -7,6 +7,9 @@ require_once "config.php";
 $fname = "";
 $lname = "";
 $phone = "";
+$practice_address1 = "";
+$practice_address2 = "";
+$practice_address3 = "";
 $email = "";
 $password = "";
 $confirm_password = "";
@@ -14,9 +17,13 @@ $confirm_password = "";
 $fname_err = "";
 $lname_err = "";
 $phone_err = "";
+$address1_err = "";
+$address2_err = "";
+$address3_err = "";
 $email_err = "";
 $password_err = "";
 $confirm_password_err = "";
+
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -40,14 +47,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 	
 	// Validate phone number
-    if(empty(trim($_POST["lname"]))){
-        $lname_err = "Please enter a name.";     
+    if(empty(trim($_POST["phone"]))){
+        $phone_err = "Please enter a phone number.";     
     } elseif(preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $_POST["phone"])){
-        $lname_err = "Name cannot contain numbers.";
+        $phone_err = "Phone number cannot contain letters.";
     } else{
-        $lname = trim($_POST["lname"]);
+        $phone = trim($_POST["phone"]);
     }
- 
+	
+	// Validate address 1
+    if(empty(trim($_POST["practice_address1"]))){
+        $address1_err = "Please enter an address line.";     
+    } else{
+        $practice_address1 = trim($_POST["practice_address1"]);
+    }
+	
+	// Validate address 2
+    if(empty(trim($_POST["practice_address2"]))){
+        $address2_err = "Please enter an address line.";     
+    } else{
+        $practice_address2 = trim($_POST["practice_address2"]);
+    }
+	
+	// Validate address 1
+    if(empty(trim($_POST["practice_address3"]))){
+        $address3_err = "Please enter an address line.";     
+    } else{
+        $practice_address3 = trim($_POST["practice_address3"]);
+    }
+	
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";
@@ -120,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: login.php");
+                header("location: /scripts/login.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -150,7 +178,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
     <div class="wrapper">
         <h2>Register</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+		
+		 <div class="form-group">
+			<label for="dropdown">Select profession:</label>
+			<select class="form-control" id="dropdown" name="dropdown" required>
+				<option value="gp">General Practictioner</option>
+				<option value="ins">Insurance Professional</option>
+			</select>
+		</div> 
+		
+		<!-- GP Registration Form -->
+        <form id ="gp-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+		
 		
 			<div class="form-group <?php echo (!empty($fname_err)) ? 'has-error' : ''; ?>">
                 <label>First Name</label>
@@ -163,6 +202,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="text" name="lname" class="form-control" value="<?php echo $lname; ?>">
                 <span class="help-block"><?php echo $lname_err; ?></span>
             </div>
+			
+			<div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+                <label>Phone Number:</label>
+                <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                <span class="help-block"><?php echo $phone_err; ?></span>
+            </div>
+			
+			<div class="form-group <?php echo (!empty($address1_err)) ? 'has-error' : ''; ?>">
+				<label for="addressL1"><b>Practice Address Line 1:</b></label>
+				<input type="text" id="add1" name="addressInput1" class="form-control" value="<?php echo $practice_address1; ?>">
+				<span class="help-block"><?php echo $address1_err; ?></span>
+			</div>
+			
+			<div class="form-group <?php echo (!empty($address2_err)) ? 'has-error' : ''; ?>">
+				<label for="addressL1"><b>Practice Address Line 2:</b></label>
+				<input type="text" id="add2" name="addressInput1" class="form-control" value="<?php echo $practice_address2; ?>">
+				<span class="help-block"><?php echo $address2_err; ?></span>
+			</div>
+			
+			<div class="form-group <?php echo (!empty($address3_err)) ? 'has-error' : ''; ?>">
+				<label for="addressL1"><b>Practice Address Line 3:</b></label>
+				<input type="text" id="add3" name="addressInput1" class="form-control" value="<?php echo $practice_address3; ?>">
+				<span class="help-block"><?php echo $address3_err; ?></span>
+			</div>
 			
 			<div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                 <label>Email</label>
@@ -190,6 +253,70 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
-    </div>    
+		
+		<!-- Insurer Registration Form -->
+        <form id ="ins-form" style="display: none;" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+		
+		
+			<div class="form-group <?php echo (!empty($fname_err)) ? 'has-error' : ''; ?>">
+                <label>First Name</label>
+                <input type="text" name="fname" class="form-control" value="<?php echo $fname; ?>">
+                <span class="help-block"><?php echo $fname_err; ?></span>
+            </div>
+			
+			<div class="form-group <?php echo (!empty($lname_err)) ? 'has-error' : ''; ?>">
+                <label>Last Name</label>
+                <input type="text" name="lname" class="form-control" value="<?php echo $lname; ?>">
+                <span class="help-block"><?php echo $lname_err; ?></span>
+            </div>
+			
+			<div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+                <label>Phone Number:</label>
+                <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                <span class="help-block"><?php echo $phone_err; ?></span>
+            </div>
+			
+			
+			<div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                <span class="help-block"><?php echo $email_err; ?></span>
+            </div>
+			
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+			
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+			
+			
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+			
+            <p>Already have an account? <a href="/scripts/login.php">Login here</a>.</p>
+        </form>
+    </div>	
+	<script>
+		document.getElementById ("dropdown").addEventListener ("change", 
+		function(obj)
+	  {
+		var input = document.getElementById("add1");
+		input.disabled = (this.value == "ins");
+		
+		var input1 = document.getElementById("add2");
+		input1.disabled = (this.value == "ins");
+		
+		var input2 = document.getElementById("add3");
+		input2.disabled = (this.value == "ins");
+	  }, false);
+	</script>
 </body>
 </html>
