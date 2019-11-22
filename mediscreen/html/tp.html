@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/tpStyle.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<title>Medi-Screen Terms & Privacy</title>
+		<script>
+			$(document).ready(function(){
+			  // Add smooth scrolling to all links
+			  $("a").on('click', function(event) {
+
+				// Make sure this.hash has a value before overriding default behavior
+				if (this.hash !== "") {
+				  // Prevent default anchor click behavior
+				  event.preventDefault();
+
+				  // Store hash
+				  var hash = this.hash;
+
+				  // Using jQuery's animate() method to add smooth page scroll
+				  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+				  $('html, body').animate({
+					scrollTop: $(hash).offset().top
+				  }, 800, function(){
+			   
+					// Add hash (#) to URL when done scrolling (default click behavior)
+					window.location.hash = hash;
+				  });
+				} // End if
+			  });
+			});
+		</script>
+	</head>	
+	<body>
+			<div class="main-container">			
+				<nav class="navbar">
+					<div class= "header">
+					  <h1><a id="title" href="../html/homePage.html">Mediscreen</a></h1>
+					  <!--<a href="home.php"><img src="JAGI_logo.png" alt="JAGI logo" width= "50px" height= "90px"></a>-->
+					</div>
+					<div class="nav">
+						<ul class="nav-links">
+							<li><a href="../html/homePage.html">Home</a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+						
+						<ul class="login">
+							<li><button class="loginButton"><a href="../html/loginPage.html">Login</a></button></li>
+							<li><button class="registerButton"><a href="../html/registerPage.html">Register</a></button></li>
+						</ul>
+					</div>					 
+				</nav>
+				<div class="content">
+				</div>
+			</div>
+			<section id="about" class="features">
+				<div class='row'>
+					<div class="column">
+						<div class="one-column">
+							<div class="col-content"><h2>Terms & Privacy</h2><p>
+								A privacy notice is a public document from an organization that explains how that organization processes personal data and how it applies data protection principles. Articles 12, 13, and 14 of the GDPR provide detailed instructions on 
+								how to create a privacy notice, placing an emphasis on making them easy to understand and accessible. If you are collecting data directly from someone, you have to provide them with your privacy notice at the moment you do so.
+
+								Note that the terms “privacy notice” and “privacy policy” do not actually appear in the text of the GDPR and are essentially interchangeable. The guidelines explained in this article apply to any public documents in which your organization describes its data processing activities to customers and the public.
+
+								According to the GDPR, organizations must provide people with a privacy notice that is:
+
+								In a concise, transparent, intelligible, and easily accessible form
+								Written in clear and plain language, particularly for any information addressed specifically to a child
+								Delivered in a timely manner
+								Provided free of charge
+								The GDPR also stipulates what information an organization must share in a privacy notice. There is a slight variation in requirements depending on whether an organization collects its data directly from an individual or receives it as a third party.
+							</p></div>
+						</div>
+					<div class="column">
+						<div class="two-column">
+							<div class="col-content">
+							<p>If an organization is collecting information from an individual directly, it must include the following information in its privacy notice:
+
+								The identity and contact details of the organization, its representative, and its Data Protection Officer
+								The purpose for the organization to process an individual’s personal data and its legal basis
+								The legitimate interests of the organization (or third party, where applicable)
+								Any recipient or categories of recipients of an individual’s data
+								The details regarding any transfer of personal data to a third country and the safeguards taken
+								The retention period or criteria used to determine the retention period of the data
+								The existence of each data subject’s rights
+								The right to withdraw consent at any time (where relevant)
+								The right to lodge a complaint with a supervisory authority
+								Whether the provision of personal data is part of a statutory or contractual requirement or obligation and the possible consequences of failing to provide the personal data
+								The existence of an automated decision-making system, including profiling, and information about how this system has been set up, the significance, and the consequences
+							</p></div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="three-column">
+							<div class="col-content"><p>							
+								If an organization obtains your data indirectly (via another organization) its privacy notice must provide all the same information, except for:
+
+								Whether the provision of personal data is part of a statutory or contractual requirement or obligation and the possible consequences of failing to provide the personal data
+								And instead must add:
+
+								The categories of personal data obtained
+								Per Article 14(3), if you obtain personal data from a third party, you must communicate the above information to the data subject either: no later than one month after you have obtained the data, at the time you first communicate with the data subject, or before sharing the data with another organization.
+
+								Generally, a privacy notice will be provided in writing and, where appropriate, supplied electronically. Every organization that maintains a website should publish their privacy notice there, under the title “Privacy Policy,” and it should be accessible via a direct link from every webpage. If a website collects any personal data online, the privacy notice or a link to it should be provided on the same page where the data collection occurs. 
+								The GDPR also states that privacy notices must be available orally upon request to ensure comprehension and to aid the visually impaired.
+							</p></div>
+						</div>
+					</div>
+				</div>
+			</section>	
+		<footer class="footer">
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a href="../html/homePage.html">Home</a>
+					-
+					<a href="#about">About</a>
+					-
+					<a href="#contact">Contact</a>
+				</p>
+				<p><h4><a href="https://gdpr.eu/privacy-notice/">Reference</a>.</h4></p>
+				<p>Mediscreen &copy; 2019</p>
+			</div>
+		
+		</footer>			
+	</body>	
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/registerPage.css"/>
+		<title>Medi-Screen Register</title>
+			<script>
+				window.onload = function(){
+					document.getElementById('insurerForm').style.display = 'none';
+					document.getElementById('gpForm').style.display = 'none';
+				}
+				function showHid(x){
+					//if(document.getElementById('rdBtnInsurer').checked){
+					if(x.type="radio"){
+						if(x==0){	
+							document.getElementById('insurerForm').style.display = 'block';
+							document.getElementById('gpForm').style.display = 'none';
+						}
+						else if(x==1){//if(document.getElementById('rdBtnGP').checked){
+							document.getElementById('gpForm').style.display = 'block';
+							document.getElementById('insurerForm').style.display = 'none';
+						}
+					}
+				}		
+			</script>
+	</head>	
+	<body>
+		<div class= "logo">
+			<a href="../html/homePage.html"><img src="../image/JAGI_logo.png" alt="JAGI logo" width= "50px" height= "90px"></a>
+		</div>		
+		<h1>REGISTER FORM</h1>
+			<div class="container">				
+				<hr>
+					<div>
+						<label for="profession"><b>Profession:</b></label>
+						<input type="radio" name="formtype" id="rdBtnInsurer" onclick="showHid(0);" value="Insurer"><label>Insurer</label>
+															
+						<input type="radio" name="formtype" id="rdBtnGP" onclick="showHid(1);" value="GP"><label>General Practitioners</label>					
+					</div>
+				<hr>
+				<p>Please fill in this form to create an account.</p>
+				
+				<!-- INSURER REGISTARATION: -->
+				<div id="insurerForm" style="display:none;">					
+					<form action="../php/insurerRegistration.php" method="post">
+						<hr>
+						<h3>INSURER REGISTRATION</h3>
+							<div>
+								<label for="username"><b>Username</b></label>
+								<input type="text" placeholder="Enter Username" name="username" id="username" 
+									pattern="[A-Za-z ']+" autocomplete="off">
+							</div>
+							<div>	
+								<label for="fName"><b>Firstname</b></label>
+								<input type="text" placeholder="Enter Firstname" name="fNameInput" id="fNameInput" 
+									pattern="[A-Za-z]{1,}" autocomplete="off">
+							</div>
+							<div>
+								<label for="lName"><b>Surname</b></label>
+								<input type="text" placeholder="Enter Surname" name="lNameInput" id="lNameInput" 
+									pattern="[A-Za-z ']+" autocomplete="off">
+							</div>
+							<div>		
+								<label for="telNo"><b>Telephone Number</b></label>
+								<input type="numeric" placeholder="Enter Tel No: 0210101010" name="telNoInput" id="telNoInput" 
+									pattern="[0-9]{10}">		
+							</div>
+							<div>	
+								<label for="emailInput"><b>Email</b></label>				
+								<input type="text" placeholder="Enter Email: example@gmail.com" name="emailInput" id="emailInput"
+									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="off">
+							</div>
+							<!--
+							<div>	
+								<label for="passwordInput"><b>Password</b></label>											
+								<input type="password" placeholder="Enter Password: Example123" name="passwordInput" id="passwordInput">
+							</div>
+							<div>
+								<label for="psw-repeat"><b>Confirm Password</b></label>
+								<input type="password" placeholder="Confirm Password" name="pwd_repeat" id="pwd_repeat">														
+							</div>
+							-->
+							<div>
+								<div class="tooltip"><label for="password"><b>Password</b></label>
+									<span class="tooltiptext">Must contain: One number, One uppercase,  
+															lowercase letter and at least 8 characters
+									</span>
+								</div>
+											
+								<label for="passwordInfo"></label>
+								
+								<input type="password" placeholder="Enter Password: Example123" name="passwordInput" 
+											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+							</div>			
+						<button type="submit" class="registerbtn">REGISTER</button>
+					</form>
+					<div><?php $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; if(strpos($fullUrl, "register=empty") == true){echo "<p class='error'>You didn't fill in all fields!</p>";}elseif(strpos($fullUrl, "register=char") == true){echo "<p class='error'>You used invalid characters!</p>";}elseif(strpos($fullUrl, "register=invalidemail") == true){echo "<p class='error'>You used invalid email!</p>";}elseif(strpos($fullUrl, "register=success") == true){echo "<p class='success'>You have been signed up!</p>";} ?></div>
+				</div>
+				
+				<!-- GP REGISTARATION: -->				
+				<div id="gpForm" style="display:none;">				
+					<form action="../php/gpRegistration.php" method="post">
+						<hr>
+						<h3>GENERAL PRACTITIONERS REGISTRATION</h3>
+							<div>
+								<label for="username"><b>Username</b></label>
+								<input type="text" placeholder="Enter Username" name="username" id="username" 
+									pattern="[A-Za-z ']+" autocomplete="off">
+							</div>
+							<div>	
+								<label for="fName"><b>Firstname</b></label>
+								<input type="text" placeholder="Enter Firstname" name="fNameInput" id="fNameInput" 
+									pattern="[A-Za-z]{1,}" autocomplete="off">
+							</div>
+							<div>	
+								<label for="lName"><b>Surname</b></label>
+								<input type="text" placeholder="Enter Surname" name="lNameInput" id="lNameInput" 
+									pattern="[A-Za-z ']+" autocomplete="off">
+							</div>
+							<div>	
+								<label for="address"><b>Practice Address:</b></label>
+								<input type="text" placeholder="Enter Address Line 1" name="addressInput1" id="addressInput1" 
+									autocomplete="off">
+									
+								<input type="text" placeholder="Enter Address Line 2" name="addressInput2" id="addressInput2">
+								
+								<input type="text" placeholder="Enter City" name="addressInput3" id="addressInput3">
+							</div>
+							<div>
+								<label for="telNoInput"><b>Telephone Number</b></label>
+								<input type="numeric" placeholder="Enter Tel No: 0210101010" name="telNoInput" id="telNoInput"
+									pattern="[0-9]{10}">		
+							</div>
+							<div>		
+								<label for="email"><b>Email</b></label>
+								<input type="text" placeholder="Enter Email: example@gmail.com" name="emailInput" id="emailInput" 
+									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="off"/>
+							</div>
+							<!--
+							<div>	
+								<label for="password"><b>Password</b></label>											
+								<input type="password" placeholder="Enter Password: Example123" name="passwordInput" id="passwordInput"/>
+							</div>
+							<div>	
+								<label for="psw-repeat"><b>Confirm Password</b></label>
+								<input type="password" placeholder="Confirm Password" name="psw_repeat" id="psw_repeat">
+							</div>
+							-->
+							<div>
+								<div class="tooltip"><label for="password"><b>Password</b></label>
+									<span class="tooltiptext">Must contain: One number, One uppercase,  
+															lowercase letter and at least 8 characters
+									</span>
+								</div>
+											
+								<label for="passwordInfo"></label>
+								
+								<input type="password" placeholder="Enter Password: Example123" name="passwordInput" 
+											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+							</div>
+						<button type="submit" class="registerbtn">REGISTER</button>
+					</form>
+				</div>				
+				<hr>
+				<p>By creating an account you agree to our <a href="../html/tp.html">Terms & Privacy</a>.</p>				
+				<div class="container signin">
+					<p>Already have an account? <a href="../html/loginPage.html">SIGN IN</a>.</p>
+				</div>
+				<div class="container signin">
+					<p>Back To Home Page? <a href="../html/homePage.html">Home Page</a>.</p>
+				</div>
+			</div>	<!-- End of div "container" -->	
+	</body>
+</html>

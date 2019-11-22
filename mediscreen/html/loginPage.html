@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/loginPage.css"/>
+		<title>Medi-Screen Login</title>
+		<script>
+			function validation(){
+			var username = document.login.username.value;
+			var password = document.login.password.value;
+			
+				//check size field
+				if(username=="" || password==""){
+					alert("Empty Fields!! Should not be blank");
+					return;
+				}
+				if(password.length<8 || password.length>8){
+					alert("Must contain: One number, One uppercase, lowercase letter and at least 8 characters ");
+					return;
+				}
+				var str=username.slice(0,1);
+				if(username.slice(0,1)=="_"||username.slice(0,1)=="@"||str.match(/[0-9]/g)!=null){
+					alert("Username should not start with _, @and Number");
+					return;
+				}
+			
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		<div class="logo">
+			<a href="../html/homePage.html"><img src="../image/JAGI_logo.png" alt="JAGI logo" width= "50px" height= "90px"></a>
+		</div>
+		
+		<h1>LOGIN FORM</h1>
+		<form action="../php/userLogin.php" method="post" onsubmit="return validation()" name="login">
+			<div class="container">
+				<label for="username"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="username" 
+					pattern="[A-Za-z ']+" value="" autocomplete="off">
+				
+				<div class="tooltip"><label for="password"><b>Password</b></label>
+					<span class="tooltiptext">Must contain: One number, One uppercase,  
+						lowercase letter and at least 8 characters
+					</span>
+				</div>
+				
+				<label for="passwordInfo"><b>
+				<input type="password" placeholder="Enter Password" name="password" 
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="">
+				
+				<!--
+				CODEING NEEDED: Only allow to login if username and password are entered
+				-->
+				<button type="submit" class="loginButton">LOGIN</button>
+		<!--	</div>
+			  <div class="container" style="background-color:#f1f1f1">
+				<button type="button" class="cancelbtn" onclick="window.location.href='homePage.html';">Cancel</button>
+			  </div> -->
+		</form>
+	 <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+	</body>
+</html>
