@@ -44,17 +44,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	
 	<div class="card" style="width: 18rem;">
 	  <div class="card-body">
-		<h5 class="card-title">List Users</h5>
-		<p class="card-text">View a list of all medical and insurance professionals registered on the system.</p>
-		<a href="scripts/listUsers.php" class="btn btn-info">List Users</a>
+		<h5 class="card-title">List GPs</h5>
+		<p class="card-text">View a list of all general practitioners registered on the system.</p>
+		<a href="scripts/ops/gp/list.php" class="btn btn-info">List GPs</a>
 	  </div>
 	</div>
 
 	<div class="card" style="width: 18rem;">
 	  <div class="card-body">
-		<h5 class="card-title">Search Patients</h5>
-		<p class="card-text">Search from a list of patients registered to the system. You'll need their patient ID in order to access the list.</p>
-		<a href="#" class="btn btn-info">Search Patients</a>
+		<h5 class="card-title">List Insurers</h5>
+		<p class="card-text">View a list of all insurance professionals registered on the system.</p>
+		<a href="#" class="btn btn-info">List Insurers</a>
 	  </div>
 	</div>
 

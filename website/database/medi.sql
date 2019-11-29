@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2019 at 06:23 PM
+-- Generation Time: Nov 29, 2019 at 12:12 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -29,27 +29,53 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `gp` (
-  `user_id` int(11) NOT NULL,
-  `first_name` int(11) NOT NULL,
-  `last_name` int(11) NOT NULL,
-  `address` int(11) NOT NULL,
-  `phone_no` int(11) NOT NULL,
-  `email` int(11) NOT NULL
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `phone_no` int(255) NOT NULL,
+  `address1` varchar(255) NOT NULL,
+  `address2` varchar(255) NOT NULL,
+  `address3` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gp`
+--
+
+INSERT INTO `gp` (`first_name`, `last_name`, `phone_no`, `address1`, `address2`, `address3`, `email`, `password`) VALUES
+('John', 'Doe', 123, '123', '4567', '4575', 'johndoe@gmail.com', '$2y$10$U9KQqVC8tvhaeU787HM6UeI3i6mhAuquyJCnAhbbh6YaBSbTxIgKe'),
+('Bob', 'Doe', 123456, '9 Generic Street', 'Cork', 'Ireland', 'bob@bob.com', '$2y$10$oMSpmji.qgpmWm244ndzDuf.um9IptWi86sxmPYniPrn6iNgvqWfe'),
+('Peter', 'O\'Brien', 861738137, '12 Random Road', 'Waterford', 'Ireland', 'pd@gmail.com', '$2y$10$sdCt/QhBTzrFYoUNw.HmSukqG1fm5sJCUfcDJtxQ/qO6qMi3rV8Ny'),
+('Paul', 'Example', 24867345, '123 Street', 'Town', 'Country', 'paul@gmail.com', '$2y$10$DWd04t.v4jCIQkiDH5FHW.3MJRxsybgLqb2Kyg4W/tkA2mV54Fbki'),
+('jordan', 'curley', 132421, '124', '1', 'assfg', 'jordan@gmail.com', '$2y$10$3VZ3BObNXAarZpz0rXx4D.2WO0oGud8fIxe2XXTJ2rnOwC9zpTQf6'),
+('James', 'Example', 123, 'sdgj', 'dsfhg', 'cork', 'james@j.com', '$2y$10$ninW5SkeVm./ItmtAjZGkubH5.KcVmSTDD2plZ22vZOglLPxk6ZlG'),
+('Eric', 'Murphy', 871645391, '123 Random Street', 'Town', 'Cork', 'ericmurphy@gmail.com', '$2y$10$foWoLye568r7ZRf/ZdBcg.WVDuhna.E/gtaX785L5mN9lslFw5y8u');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `insurers`
+-- Table structure for table `insurer`
 --
 
-CREATE TABLE `insurers` (
-  `user_id` int(4) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `phone_no` varchar(15) NOT NULL,
-  `email` varchar(50) NOT NULL
+CREATE TABLE `insurer` (
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `phone_no` int(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `insurer`
+--
+
+INSERT INTO `insurer` (`first_name`, `last_name`, `phone_no`, `email`, `password`) VALUES
+('John', 'Smith', 123, 'jsm@gmail.com', '$2y$10$.wdJ2dfM/HJLPdvklazR2edYzzQupmCcXrOyXA7F4OBV3NKCpgja2'),
+('Peter', 'O\'Brien', 2147483647, 'peterobrien@gmail.com', '$2y$10$Cdzq2ZclfHdpwjRpVXNExufNK9DXsTAr2VOCFm0E7zxDNj4o/LWsu'),
+('Bob', 'Smith', 2147483647, '', '$2y$10$tZL6SWeTuaun4y.uLEKj4ODwFgwxLkFALMxr1OcoGWPlMSb78aUjq'),
+('John', 'Doe', 12824, 'jd@com.com', '$2y$10$x7k9UHrT1lctRKN1Wl2eWuWzwf8YHcpbegbn1iTanCklqh6C5IBOW'),
+('Jordan', 'Curley', 214624234, 'jordanc@gmail.com', '$2y$10$/NaXXD3LDh4K8mLdhv/hBuGFB/pZyJrcuIj06625dI7EToxoqyIR2');
 
 -- --------------------------------------------------------
 
@@ -58,111 +84,21 @@ CREATE TABLE `insurers` (
 --
 
 CREATE TABLE `login_details` (
-  `user_id` int(4) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `user_id` int(4) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `user_type` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `user_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `login_details`
 --
 
-INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `user_type`, `email`, `password`) VALUES
-(7, 'Bob', 'Abc', 'Insurer', 'bob@bob.com', '$2y$10$EOHR85RCJVbdG0ae8TNXNeHvkCJYH/0G4LIUTO7asSEY9GNYdYeTu');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `gp`
---
-ALTER TABLE `gp`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `insurers`
---
-ALTER TABLE `insurers`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `login_details`
---
-ALTER TABLE `login_details`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `gp`
---
-ALTER TABLE `gp`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `insurers`
---
-ALTER TABLE `insurers`
-  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `login_details`
---
-ALTER TABLE `login_details`
-  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `gp`
---
-ALTER TABLE `gp`
-  ADD CONSTRAINT `gp_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `insurers`
---
-ALTER TABLE `insurers`
-  ADD CONSTRAINT `insurers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `login_details`
---
-ALTER TABLE `login_details`
-  ADD CONSTRAINT `login_details_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+INSERT INTO `login_details` (`email`, `password`, `user_type`) VALUES
+('jordan@gmail.com', '$2y$10$t1blkGjJj3rPc0AlQkX/KObrej9Dc7aKFODb8OVzWYOr3nEZLzmc6', ''),
+('james@j.com', '$2y$10$lG67AdrYAGXjNWLWLN8Q9e1p5pR8G/epWfoCihCt2tpgWsCdaqOE6', ''),
+('jd@com.com', '$2y$10$M6smt0iYJsqpeBmBFlWEr.Sjmw.zWyjIJ2wzcsL8qzwfyDFv9ybY6', ''),
+('jordanc@gmail.com', '$2y$10$3FFVwQHC/tzt8F0EeMRqoOF8S9j9pwjZ3RslLBbNA5GgFcNzX1bLC', 'INS'),
+('ericmurphy@gmail.com', '$2y$10$zjnfJQ.rM69Sq/N0rEpZ1OCn/jq/zr0aLg/J42AGn/XKwThLDi9Jq', 'GP');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
