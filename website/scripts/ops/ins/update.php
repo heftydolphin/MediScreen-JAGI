@@ -15,9 +15,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 $fname = "";
 $lname = "";
 $phone = "";
-$practice_address1 = "";
-$practice_address2 = "";
-$practice_address3 = "";
 $email = "";
 $password = "";
 $confirm_password = "";
@@ -25,9 +22,6 @@ $confirm_password = "";
 $fname_err = "";
 $lname_err = "";
 $phone_err = "";
-$address1_err = "";
-$address2_err = "";
-$address3_err = "";
 $email_err = "";
 $password_err = "";
 $confirm_password_err = "";
@@ -63,32 +57,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $phone = trim($_POST["phone"]);
     }
 	
-	// Validate address 1
-	if(empty(trim($_POST["practice_address1"]))){
-		$address1_err = "Please enter an address line.";     
-	} elseif(!preg_match("/^[a-z0-9 .\-]+$/i", $_POST["practice_address1"])) {
-		$address1_err = "Address can only contain letters and numbers.";
-	} else{
-		$practice_address1 = trim($_POST["practice_address1"]);
-	}
-	
-	// Validate address 2
-	if(empty(trim($_POST["practice_address2"]))){
-		$address2_err = "Please enter an address line.";     
-	} elseif(!preg_match("/^[a-z0-9 .\-]+$/i", $_POST["practice_address2"])) {
-		$address2_err = "Address can only contain letters and numbers.";
-	} else{
-		$practice_address2 = trim($_POST["practice_address2"]);
-	}
-	
-	// Validate address 3
-	if(empty(trim($_POST["practice_address3"]))){
-		$address3_err = "Please enter an address line.";     
-	} elseif(!preg_match("/^[a-z0-9 .\-]+$/i", $_POST["practice_address3"])) {
-		$address3_err = "Address can only contain letters and numbers.";
-	} else{
-		$practice_address3 = trim($_POST["practice_address3"]);
-	}
 	
     // Validate email
     if(empty(trim($_POST["email"]))){
@@ -143,22 +111,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Check input errors before inserting in database
-	if(empty($fname_err) && empty($lname_err) && empty($phone_err) && empty($address1_err) && empty($address2_err) && empty($address3_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
+	if(empty($fname_err) && empty($lname_err) && empty($phone_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
 		
         // Prepare an update statement
-       $sql = "UPDATE gp SET first_name=?, last_name=?, phone_no=?, address1=?, address2=?, address3=?, email=?, password=? WHERE email=?";
+       $sql = "UPDATE insurer SET first_name=?, last_name=?, phone_no=?, email=?, password=? WHERE email=?";
          
        if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-			mysqli_stmt_bind_param($stmt, "ssissssss", $param_fname, $param_lname, $param_phone, $param_add1, $param_add2, $param_add3, $param_email, $param_password, $param_email);
+			mysqli_stmt_bind_param($stmt, "ssisss", $param_fname, $param_lname, $param_phone, $param_email, $param_password, $param_email);
             
             // Set parameters
 			$param_fname = $fname;
 			$param_lname = $lname;
 			$param_phone = $phone;
-			$param_add1 = $practice_address1;
-			$param_add2 = $practice_address2;
-			$param_add3 = $practice_address3;
 			$param_email = $email;
 			$param_password = password_hash($password, PASSWORD_DEFAULT);
             
@@ -180,7 +145,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						// Attempt to execute the prepared statement
 						if(mysqli_stmt_execute($stmt1)){
 							// Redirect to list page
-							header("location: /website/scripts/ops/gp/list.php");
+							header("location: list.php");
 						} else{
 							echo "Something went wrong. Please try again later.";
 						}
@@ -202,13 +167,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($conn);
 } else{
 	
-    // Check existence of id parameter before processing further
+    // Check existence of email parameter before processing further
     if(isset($_GET["email"]) && !empty(trim($_GET["email"]))){
         // Get URL parameter
         $email_ =  trim($_GET["email"]);
         
         // Prepare a select statement
-        $sql = "SELECT * FROM gp WHERE email = ?";
+        $sql = "SELECT * FROM insurer WHERE email = ?";
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
@@ -228,9 +193,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					$first_name = $row["first_name"];
 					$second_name = $row["last_name"];
 					$phone_no = $row["phone_no"];
-					$add1 = $row["address1"];
-					$add2 = $row["address2"];
-					$add3 = $row["address3"];
 					$email = $row["email"];
 					$password = $row["password"];
 					
@@ -298,24 +260,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 							<label>Phone Number:</label>
 							<input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
 							<span class="help-block"><?php echo $phone_err; ?></span>
-						</div>
-						
-						<div class="form-group <?php echo (!empty($address1_err)) ? 'has-error' : ''; ?>">
-							<label>Practice Address Line 1:</label>
-							<input type="text" name="practice_address1" class="form-control" value="<?php echo $practice_address1; ?>">
-							<span class="help-block"><?php echo $address1_err; ?></span>
-						</div>
-						
-						<div class="form-group <?php echo (!empty($address2_err)) ? 'has-error' : ''; ?>">
-							<label>Practice Address Line 2:</label>
-							<input type="text" name="practice_address2" class="form-control" value="<?php echo $practice_address2; ?>">
-							<span class="help-block"><?php echo $address2_err; ?></span>
-						</div>
-						
-						<div class="form-group <?php echo (!empty($address3_err)) ? 'has-error' : ''; ?>">
-							<label>Practice Address Line 3:</label>
-							<input type="text" name="practice_address3" class="form-control" value="<?php echo $practice_address3; ?>">
-							<span class="help-block"><?php echo $address3_err; ?></span>
 						</div>
 						
 						<div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">

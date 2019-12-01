@@ -54,7 +54,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	  <div class="card-body">
 		<h5 class="card-title">List Insurers</h5>
 		<p class="card-text">View a list of all insurance professionals registered on the system.</p>
-		<a href="#" class="btn btn-info">List Insurers</a>
+		<a href="scripts/ops/ins/list.php" class="btn btn-info">List Insurers</a>
+	  </div>
+	</div>
+	
+	<div class="card" style="width: 18rem;">
+	  <div class="card-body">
+		<h5 class="card-title">List Patients</h5>
+		<p class="card-text">View a list of all patients registered on the system.</p>
+		<a href="scripts/ops/pat/list.php" class="btn btn-info">List Patients</a>
 	  </div>
 	</div>
 

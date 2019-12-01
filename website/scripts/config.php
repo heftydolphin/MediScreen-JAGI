@@ -3,7 +3,7 @@
 # Define database credentials
 define('host', 'localhost');
 define('dbusername', 'root');
-define('dbpassword', 'admin');
+define('dbpassword', '');
 define('dbname', 'medi');
 
 # Connect to database
