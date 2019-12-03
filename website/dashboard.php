@@ -40,6 +40,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	
 	<section id="user-functions" class="functions">
 	
+	<form id="search-patient-form" action="/website/scripts/search.php" method="post">
+	<div class="input-group mb-3" style="width: 96.5%; margin-left: 2rem; margin-right: 2rem;">
+		<input type="text" class="form-control" name="searchterm" placeholder="Search for a patient by entering a patient ID, name or email..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for a patient by entering a patient ID, name or email...'">
+		<div class="input-group-append">
+			<input type="submit" class="btn btn-primary" name="searchquery" value="Search">
+		</div>
+	</div>
+	</form>
+	
 	<div class="card-deck" style="margin-top: 1rem; margin-left: 1rem; margin-right: 1rem;">
 	
 	<div class="card" style="width: 18rem;">
