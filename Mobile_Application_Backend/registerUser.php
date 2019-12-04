@@ -11,7 +11,7 @@
 		
 		require_once 'dbConnect.php';
 		
-				$insertQuery  = "INSERT INTO patient(email, password, fName, lName,
+		$insertQuery  = "INSERT INTO patient(email, password, fName, lName,
 							insuranceMemberNum, insurancePolicyNum) VALUES (?,?,?,?,?,?)";
 								
 		if($stmt = $conn->prepare($insertQuery)){
