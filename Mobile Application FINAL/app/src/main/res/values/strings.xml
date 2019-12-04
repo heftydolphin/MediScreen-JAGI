@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Medi Screen Mobile Application</string>
+
+    // REGISTER / LOGIN DETAILS
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="fName">First Name</string>
+    <string name="lName">Last Name</string>
+    <string name="memberNumber">Insurance Member Number</string>
+    <string name="policyNumber">Insurance Policy Number</string>
+
+    // USER HOME OPTIONS
+    <string name="accountDetails">Account Details</string>
+    <string name="addGP">Add GP Details</string>
+    <string name="addInsurer">Add Insurer Details</string>
+    <string name="medicalHistory">Medical History</string>
+    <string name="payment">Make Insurance Premium Payment</string>
+    <string name="contactProfessional">Contact A Professional</string>
+    <string name="review">Rate and Review</string>
+    <string name="support">Support</string>
+
+    // MEDICAL HISTORY OPTIONS
+    <string name="gender">Gender</string>
+    <string name="age">Age Group</string>
+    <string name="exercise">Do You Exercise For At Least 120 Minutes Per Week</string>
+    <string name="pastConditions">Have You Ever Had A Heart Attack/Stroke Or Have Poor Circulation To The Feet</string>
+    <string name="glucose">Blood Glucose Levels</string>
+    <string name="familyHistory">Has Anyone In Your Close Family Ever Had Diabetes</string>
+    <string name="cholesterol">Have You Ever Taken Medication For High Cholesterol</string>
+    <string name="bloodPressure">Have You Ever Taken Medication For High Blood Pressure</string>
+    <string name="height">Height In cm (Centimeters)</string>
+    <string name="weight">Weight In lb (Pounds)</string>
+
+    // PAGE TITLES
+    <string name="homePage">Welcome To Your Home Page</string>
+    <string name="accountDetailsPage">Account Details</string>
+    <string name="medicalHistoryPage">Medical History</string>
+
+    // BUTTONS
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="register">Register</string>
+    <string name="save">Save</string>
+    <string name="saveChanges">Save Changes</string>
+
+    <string-array name="genderArray">
+        <item>N/A</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="ageArray">
+        <item>N/A</item>
+        <item>Under 45 Years</item>
+        <item>45 - 65 Years</item>
+        <item>Over 65 Years</item>
+    </string-array>
+
+    <string-array name="yesNoArray">
+        <item>N/A</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+</resources>
