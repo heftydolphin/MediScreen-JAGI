@@ -7,8 +7,8 @@
 		$password = $_POST['password'];
 		$fName = $_POST['fName'];
 		$lName = $_POST['lName'];
-		$memberNumber = $_POST['memberNum'];
-		$policyNumber = $_POST['policyNum'];
+		$memberNumber = $_POST['memberNumber'];
+		$policyNumber = $_POST['policyNumber'];
 		
 		$user = array(  
 			'email'=>$email,
@@ -27,8 +27,8 @@
 						
 		if($stmt = $conn->prepare($updateQuery)){
 			
-			$stmt->bind_param("ssssiis", $email, $password, $fName, $lName,
-							$memberNumber, $policyNumber, $emailHolder);
+			$stmt->bind_param("ssssii", $email, $password, $fName, $lName,
+							$memberNumber, $policyNumber);
 			$stmt->execute();	
 			
 
