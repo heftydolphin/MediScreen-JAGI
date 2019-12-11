@@ -52,7 +52,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        registerButton = (Button) findViewById(R.id.registerButton);
+        registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +75,7 @@ public class Register extends AppCompatActivity {
 
     public void registerUser(){
 
-        String URL = "http://192.168.43.216/HELP/registerUser.php";
+        String URL = "http://192.168.43.216/Mobile_Application_Backend/registerUser.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -116,7 +116,7 @@ public class Register extends AppCompatActivity {
         })
         {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
 
                 Map<String, String> params = new HashMap<>();
 
@@ -141,12 +141,12 @@ public class Register extends AppCompatActivity {
     public void getUserInput(){
 
         // Get UI components
-        emailEditText = (EditText) findViewById(R.id.emailEditText);
-        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-        fNameEditText = (EditText) findViewById(R.id.fNameEditText);
-        lNameEditText = (EditText) findViewById(R.id.lNameEditText);
-        memberNumberEditText = (EditText) findViewById(R.id.memberNumberEditText);
-        policyNumberEditText = (EditText) findViewById(R.id.policyNumberEditText);
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        fNameEditText = findViewById(R.id.fNameEditText);
+        lNameEditText = findViewById(R.id.lNameEditText);
+        memberNumberEditText = findViewById(R.id.memberNumberEditText);
+        policyNumberEditText = findViewById(R.id.policyNumberEditText);
 
         // Get the values of the user input
         email = emailEditText.getText().toString();

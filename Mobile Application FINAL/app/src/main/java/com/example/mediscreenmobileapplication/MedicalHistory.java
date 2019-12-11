@@ -66,10 +66,10 @@ public class MedicalHistory extends AppCompatActivity {
 
         getSpinnerObjects();
 
-        heightEditText = (EditText) findViewById(R.id.heightEditText);
-        weightEditText = (EditText) findViewById(R.id.weightEditText);
+        heightEditText = findViewById(R.id.heightEditText);
+        weightEditText = findViewById(R.id.weightEditText);
 
-        saveButton = (Button) findViewById(R.id.saveButton);
+        saveButton = findViewById(R.id.saveButton);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +82,7 @@ public class MedicalHistory extends AppCompatActivity {
                     saveMedicalHistory();
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "yugssyuguyu", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Invalid user input", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -90,13 +90,13 @@ public class MedicalHistory extends AppCompatActivity {
 
     private void saveMedicalHistory() {
 
-        String URL = "http://192.168.43.216/HELP/saveMedicalHistory.php";
+        String URL = "http://192.168.43.216/Mobile_Application_Backend/saveMedicalHistory.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                System.out.println("HERE WE GO" + response);
+                System.out.println("SAVE MEDICAL HISTORY - RESPONSE" + response);
 
                 // System.err:  org.json.JSONException: Value dbConnect.php of type java.lang.String cannot be converted to JSONObject
                 // Can't figure out how to fix this but the data is stored in database successfully
@@ -118,7 +118,7 @@ public class MedicalHistory extends AppCompatActivity {
                 }
                 catch (JSONException e){
                     e.printStackTrace();
-                    System.out.println("RESPONSE" + response);
+                    System.out.println("JSON EXCEPTION - RESPONSE" + response);
                 }
                 Toast.makeText(getApplicationContext(), "SERVER RESPONSE: " + response, Toast.LENGTH_LONG).show();
             }
@@ -132,7 +132,7 @@ public class MedicalHistory extends AppCompatActivity {
         })
         {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams(){
 
                 Map<String, String> params = new HashMap<>();
 
@@ -162,7 +162,7 @@ public class MedicalHistory extends AppCompatActivity {
     public void getUserInput(){
 
         // Get the values of the user input
-        gender = genderSpinner.getSelectedItem().toString();;
+        gender = genderSpinner.getSelectedItem().toString();
         age = ageSpinner.getSelectedItem().toString();
         exercise = exerciseSpinner.getSelectedItem().toString();
         bloodPressure = bloodPressureSpinner.getSelectedItem().toString();
@@ -179,34 +179,34 @@ public class MedicalHistory extends AppCompatActivity {
 
         boolean valid = true;
 
-        if (gender == "N/A"){
+        if (gender.equals("N/A")){
             valid = false;
         }
-        if (age == "N/A"){
+        if (age.equals("N/A")){
             valid = false;
         }
-        if (exercise == "N/A"){
+        if (exercise.equals("N/A")){
             valid = false;
         }
-        if (bloodPressure == "N/A"){
+        if (bloodPressure.equals("N/A")){
             valid = false;
         }
-        if (pastConditions == "N/A"){
+        if (pastConditions.equals("N/A")){
             valid = false;
         }
-        if (glucose == "N/A"){
+        if (glucose.equals("N/A")){
             valid = false;
         }
-        if (familyHistory == "N/A"){
+        if (familyHistory.equals("N/A")){
             valid = false;
         }
-        if (cholesterol == "N/A"){
+        if (cholesterol.equals("N/A")){
             valid = false;
         }
-        if (height == "N/A"){
+        if (height.equals("N/A")){
             valid = false;
         }
-        if (weight == "N/A"){
+        if (weight.equals("N/A")){
             valid = false;
         }
         return valid;
@@ -214,49 +214,49 @@ public class MedicalHistory extends AppCompatActivity {
 
     public void getSpinnerObjects(){
 
-        genderSpinner = (Spinner) findViewById(R.id.genderSpinner);
+        genderSpinner = findViewById(R.id.genderSpinner);
         ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(
                 this, R.array.genderArray, android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderAdapter);
 
-        ageSpinner = (Spinner) findViewById(R.id.ageSpinner);
+        ageSpinner = findViewById(R.id.ageSpinner);
         ArrayAdapter<CharSequence> ageAdapter = ArrayAdapter.createFromResource(
                 this, R.array.ageArray, android.R.layout.simple_spinner_item);
         ageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ageSpinner.setAdapter(ageAdapter);
 
-        exerciseSpinner = (Spinner) findViewById(R.id.exerciseSpinner);
+        exerciseSpinner = findViewById(R.id.exerciseSpinner);
         ArrayAdapter<CharSequence> exerciseAdapter = ArrayAdapter.createFromResource(
                 this, R.array.yesNoArray, android.R.layout.simple_spinner_item);
         exerciseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         exerciseSpinner.setAdapter(exerciseAdapter);
 
-        bloodPressureSpinner = (Spinner) findViewById(R.id.bloodPressureSpinner);
+        bloodPressureSpinner = findViewById(R.id.bloodPressureSpinner);
         ArrayAdapter<CharSequence> bloodPressureAdapter = ArrayAdapter.createFromResource(
                 this, R.array.yesNoArray, android.R.layout.simple_spinner_item);
         bloodPressureAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bloodPressureSpinner.setAdapter(bloodPressureAdapter);
 
-        pastConditionsSpinner = (Spinner) findViewById(R.id.pastConditionsSpinner);
+        pastConditionsSpinner = findViewById(R.id.pastConditionsSpinner);
         ArrayAdapter<CharSequence> conditionsAdapter = ArrayAdapter.createFromResource(
                 this, R.array.yesNoArray, android.R.layout.simple_spinner_item);
         conditionsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pastConditionsSpinner.setAdapter(conditionsAdapter);
 
-        glucoseSpinner = (Spinner) findViewById(R.id.glucoseSpinner);
+        glucoseSpinner = findViewById(R.id.glucoseSpinner);
         ArrayAdapter<CharSequence> glucoseAdapter = ArrayAdapter.createFromResource(
                 this, R.array.yesNoArray, android.R.layout.simple_spinner_item);
         glucoseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         glucoseSpinner.setAdapter(glucoseAdapter);
 
-        familyHistorySpinner = (Spinner) findViewById(R.id.familyHistorySpinner);
+        familyHistorySpinner = findViewById(R.id.familyHistorySpinner);
         ArrayAdapter<CharSequence> familyHistoreAdapter = ArrayAdapter.createFromResource(
                 this, R.array.yesNoArray, android.R.layout.simple_spinner_item);
         familyHistoreAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         familyHistorySpinner.setAdapter(familyHistoreAdapter);
 
-        cholesterolSpinner = (Spinner) findViewById(R.id.cholesterolSpinner);
+        cholesterolSpinner = findViewById(R.id.cholesterolSpinner);
         ArrayAdapter<CharSequence> cholesterolAdapter = ArrayAdapter.createFromResource(
                 this, R.array.yesNoArray, android.R.layout.simple_spinner_item);
         cholesterolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

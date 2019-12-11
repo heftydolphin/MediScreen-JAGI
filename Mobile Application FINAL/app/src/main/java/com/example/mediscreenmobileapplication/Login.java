@@ -53,10 +53,10 @@ public class Login extends AppCompatActivity {
             startActivity(new Intent(this, UserHome.class));
         }
 
-        emailEditText = (EditText) findViewById(R.id.emailEditText);
-        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
 
-        loginButton = (Button) findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.loginButton);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
 
     public void loginUser(){
 
-        String URL = "http://192.168.43.216/HELP/loginUser.php";
+        String URL = "http://192.168.43.216/Mobile_Application_Backend/loginUser.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -142,7 +142,7 @@ public class Login extends AppCompatActivity {
         })
         {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams(){
 
                 Map<String, String> params = new HashMap<>();
                 System.out.println("HELLLLLL");
@@ -162,8 +162,8 @@ public class Login extends AppCompatActivity {
     public void getUserInput(){
 
         // Get UI components
-        emailEditText = (EditText) findViewById(R.id.emailEditText);
-        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
 
         // Get the values of the user input
         email = emailEditText.getText().toString();

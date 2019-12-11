@@ -56,16 +56,16 @@ public class UserDetails extends AppCompatActivity {
         user = SharedPrefManager.getInstance(this).getUser();
         emailHolder = user.getEmail();
 
-        emailEditText = (EditText) findViewById(R.id.emailEditText);
-        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-        fNameEditText = (EditText) findViewById(R.id.fNameEditText);
-        lNameEditText = (EditText) findViewById(R.id.lNameEditText);
-        memberNumberEditText = (EditText) findViewById(R.id.memberNumberEditText);
-        policyNumberEditText = (EditText) findViewById(R.id.policyNumberEditText);
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        fNameEditText = findViewById(R.id.fNameEditText);
+        lNameEditText = findViewById(R.id.lNameEditText);
+        memberNumberEditText = findViewById(R.id.memberNumberEditText);
+        policyNumberEditText = findViewById(R.id.policyNumberEditText);
 
         populateFields();
 
-        saveChangesButton = (Button) findViewById(R.id.saveChangesButton);
+        saveChangesButton = findViewById(R.id.saveChangesButton);
 
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +85,7 @@ public class UserDetails extends AppCompatActivity {
 
     private void updateUser() {
 
-        String URL = "http://192.168.43.216/HELP/updateUser.php";
+        String URL = "http://192.168.43.216/Mobile_Application_Backend/updateUser.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -153,7 +153,7 @@ public class UserDetails extends AppCompatActivity {
         })
         {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
 
                 Map<String, String> params = new HashMap<>();
                 System.out.println("HELLLLLL");
@@ -163,8 +163,8 @@ public class UserDetails extends AppCompatActivity {
                 params.put("password", password);
                 params.put("fName", fName);
                 params.put("lName", lName);
-                params.put("memberNum", memberNumber);
-                params.put("policyNum", policyNumber);
+                params.put("memberNumber", memberNumber);
+                params.put("policyNumber", policyNumber);
 
                 return params;
             }

@@ -16,7 +16,9 @@ public class UserHome extends AppCompatActivity {
 
     User user;
 
-    TextView userEmail;
+    TextView userName;
+
+    String name;
 
     Button accountDetailsButton;
     Button addGPButton;
@@ -38,21 +40,23 @@ public class UserHome extends AppCompatActivity {
 
             user = SharedPrefManager.getInstance(this).getUser();
 
-            userEmail = (TextView) findViewById(R.id.userEmail);
+            name = user.getfName() + " " + user.getlName();
+            userName = findViewById(R.id.userName);
 
-            userEmail.setTextColor(Color.parseColor("#FFFFFF"));
-            userEmail.setText(user.getEmail());
+            userName.setTextColor(Color.parseColor("#FFFFFF"));
 
-            accountDetailsButton = (Button) findViewById(R.id.accountDetailsButton);
-            addGPButton = (Button) findViewById(R.id.addGPButton);
-            addInsurerButton = (Button) findViewById(R.id.addInsurerButton);
-            medicalHistoryButton = (Button) findViewById(R.id.medicalHistoryButton);
-            paymentButton = (Button) findViewById(R.id.paymentButton);
-            contactButton = (Button) findViewById(R.id.contactButton);
-            reviewButton = (Button) findViewById(R.id.reviewButton);
-            supportButton = (Button) findViewById(R.id.supportButton);
+            userName.setText(name);
 
-            logoutButton = (Button) findViewById(R.id.logOutButton);
+            accountDetailsButton = findViewById(R.id.accountDetailsButton);
+            addGPButton = findViewById(R.id.addGPButton);
+            addInsurerButton = findViewById(R.id.addInsurerButton);
+            medicalHistoryButton = findViewById(R.id.medicalHistoryButton);
+            paymentButton = findViewById(R.id.paymentButton);
+            contactButton = findViewById(R.id.contactButton);
+            reviewButton = findViewById(R.id.reviewButton);
+            supportButton = findViewById(R.id.supportButton);
+
+            logoutButton = findViewById(R.id.logOutButton);
 
             accountDetailsButton.setOnClickListener(new View.OnClickListener() {
                 @Override
