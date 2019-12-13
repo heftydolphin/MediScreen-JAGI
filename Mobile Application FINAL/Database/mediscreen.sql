@@ -9,7 +9,7 @@ CREATE TABLE `gp` (
   `telNo` int(10) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(30) DEFAULT NULL
-)
+);
 
 
 INSERT INTO `gp` (`fName`, `lName`, `practiceAddress1`, `practiceAddress2`, `practiceAddress3`, `telNo`, `email`, `password`) VALUES
@@ -23,7 +23,7 @@ CREATE TABLE `insurer` (
   `telNo` int(10) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(25) DEFAULT NULL
-)
+);
 
 INSERT INTO `insurer` (`fName`, `lName`, `telNo`, `email`, `password`) VALUES
 ('David', 'O\' Connel', 855293753, 'david_connel123@hotmail.net', 'Password123'),
@@ -46,7 +46,7 @@ CREATE TABLE `medical_history` (
   `height` int(4) DEFAULT NULL,
   `weight` int(4) DEFAULT NULL,
   `patientID` varchar(50) DEFAULT NULL
-)
+);
 
 CREATE TABLE `patient` (
   `email` varchar(50) DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `patient` (
   `lName` varchar(30) DEFAULT NULL,
   `insuranceMemberNum` int(5) DEFAULT NULL,
   `insurancePolicyNum` int(5) DEFAULT NULL
-)
+);
 
 INSERT INTO `patient` (`email`, `password`, `fName`, `lName`, `insuranceMemberNum`, `insurancePolicyNum`) VALUES
 ('test@test.com', 'Test1234', 'Test', 'Test', 12345, 12345),
@@ -67,4 +67,4 @@ ALTER TABLE `patient`
   ADD UNIQUE KEY `insurancePolicyNum` (`insurancePolicyNum`),
   ADD UNIQUE KEY `insuranceMemberNum` (`insuranceMemberNum`),
   ADD UNIQUE KEY `email` (`email`);
-COMMIT;
+
