@@ -59,7 +59,6 @@ public class Register extends AppCompatActivity {
 
                 getUserInput();
 
-
                 if (validate()){
 
                     user = new User(email, password, fName, lName, memberNumber, policyNumber);

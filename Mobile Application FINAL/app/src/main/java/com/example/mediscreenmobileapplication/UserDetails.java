@@ -156,7 +156,6 @@ public class UserDetails extends AppCompatActivity {
             protected Map<String, String> getParams() {
 
                 Map<String, String> params = new HashMap<>();
-                System.out.println("HELLLLLL");
 
                 params.put("emailHolder", emailHolder);
                 params.put("email", email);
@@ -169,10 +168,8 @@ public class UserDetails extends AppCompatActivity {
                 return params;
             }
         };
-
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
-
     }
 
     public void populateFields(){
@@ -183,119 +180,4 @@ public class UserDetails extends AppCompatActivity {
         memberNumberEditText.setText(user.getMemberNumber());
         policyNumberEditText.setText(user.getPolicyNumber());
     }
-
-//    public Boolean checkEmailChange() {
-//
-//        Boolean change = false;
-//
-//        if (emailEditText.getText().toString() == user.getEmail()) {
-//
-//            return change;
-//        }
-//        else {
-//
-//            change = true;
-//            return change;
-//        }
-//    }
-//
-//    public Boolean checkPasswordChange() {
-//
-//        Boolean change = false;
-//
-//        if (passwordEditText.getText().toString() == user.getPassword()) {
-//
-//            return change;
-//        }
-//        else {
-//
-//            change = true;
-//            return change;
-//        }
-//    }
-//
-//    public Boolean checkFNameChange() {
-//
-//        Boolean change = false;
-//
-//        if (fNameEditText.getText().toString() == user.getfName()) {
-//
-//            return change;
-//        }
-//        else {
-//
-//            change = true;
-//            return change;
-//        }
-//    }
-//
-//    public Boolean checkLNameChange() {
-//
-//        Boolean change = false;
-//
-//        if (lNameEditText.getText().toString() == user.getlName()) {
-//
-//            return change;
-//        }
-//        else {
-//
-//            change = true;
-//            return change;
-//        }
-//    }
-//
-//    public Boolean checkMemberNumChange() {
-//
-//        Boolean change = false;
-//
-//        if (memberNumberEditText.getText().toString() == user.getMemberNumber()) {
-//
-//            return change;
-//        }
-//        else {
-//
-//            change = true;
-//            return change;
-//        }
-//    }
-//
-//    public Boolean checkPolicyNumChange() {
-//
-//        Boolean change = false;
-//
-//        if (policyNumberEditText.getText().toString() == user.getPolicyNumber()) {
-//
-//            return change;
-//        }
-//        else {
-//
-//            change = true;
-//            return change;
-//        }
-//    }
-
-    //                if(password != null){
-//
-//                    new AlertDialog.Builder(getApplicationContext())
-//                            .setIcon(android.R.drawable.ic_dialog_alert)
-//                            .setTitle("Change Profile Details")
-//                            .setMessage("Are you sure you like to change your password?")
-//                            .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-//                            {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    finish();
-//                                }
-//
-//                            })
-//                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//
-//                                }
-//                            })
-//                            .show();
-//                }
-//                else {
-
 }
