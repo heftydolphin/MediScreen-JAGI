@@ -98,38 +98,24 @@ public class UserHome extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    new AlertDialog.Builder(getApplicationContext())
-                            .setIcon(android.R.drawable.ic_dialog_alert)
-                            .setTitle("Contact Professional")
-                            .setMessage("Would you like to contact your GP or Insurer")
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-                            {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                }
-                            })
-                            .show();
+                    Intent contactProfessionalActivity = new Intent(getApplicationContext(), ContactProfessional.class);
+                    startActivity(contactProfessionalActivity);
 
                 }
             });
             reviewButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+//                    Intent ratingActivity = new Intent(getApplicationContext(), Rating.class);
+//                    startActivity(ratingActivity);
 
                 }
             });
             supportButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent supportActivity = new Intent(getApplicationContext(), Support.class);
+                    startActivity(supportActivity);
                 }
             });
 

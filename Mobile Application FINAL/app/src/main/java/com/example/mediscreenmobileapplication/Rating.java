@@ -1,11 +1,13 @@
 package com.example.mediscreenmobileapplication;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mediscreenmobileapplication.R;
 
 public class Rating extends AppCompatActivity {
 

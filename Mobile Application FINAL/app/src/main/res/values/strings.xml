@@ -27,6 +27,10 @@
     <string name="searchForInsurerTextView">Enter your Insurers email address:</string>
     <string name="addInsurerTextView">Medical History</string>
 
+    // SUPPORT PAGE
+    <string name="subjectTextView">Subject:</string>
+    <string name="contentTextView">Content:</string>
+
     // MEDICAL HISTORY OPTIONS
     <string name="gender">Gender</string>
     <string name="age">Age Group</string>
@@ -61,6 +65,13 @@
         <item>No</item>
     </string-array>
 
+    // PROFESSION ARRAYS
+    <string-array name="professionArray">
+        <item> -Profession- </item>
+        <item>General Practitioner</item>
+        <item>Insurer</item>
+    </string-array>
+
 
     // PAGE TITLES
     <string name="homePage">Welcome To Your Home Page</string>
@@ -68,6 +79,8 @@
     <string name="medicalHistoryPage">Medical History</string>
     <string name="addGPTitle">Link Your GP to your account</string>
     <string name="addInsurerTitle">Link Your Insurer to your account</string>
+    <string name="contactProfessionalTitle">Contact Your GP and Insurer</string>
+    <string name="supportTitle">Support Page</string>
 
     // BUTTONS
     <string name="login">Login</string>
@@ -78,6 +91,9 @@
     <string name="deleteAccount">Delete Account</string>
     <string name="searchGPButton">Search For GP</string>
     <string name="searchInsurerButton">Search For Insurer</string>
+    <string name="callInsurerButton">Call your insurer</string>
+    <string name="callGPButton">Call your GP</string>
+    <string name="sendFormButton">Send Form</string>
 
     // IMAGES
     <string name="logo">JAGI Team Logo</string>
