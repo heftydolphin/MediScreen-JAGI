@@ -33,7 +33,7 @@
 			<div class="nav">
 			<ul class="re-log">
 				<a href="#" onclick="history.go(-1)">Back</a> |
-				<a href="scripts/logout.php">Logout</a>
+				<a href="/website/scripts/logout.php">Logout</a>
 			</ul>
 			</div>
 			

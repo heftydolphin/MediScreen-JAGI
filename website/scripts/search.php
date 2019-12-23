@@ -91,7 +91,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 									echo "<th>Last Name</th>";
 									echo "<th>Email</th>";
 									echo "<th>GP Name</th>";
-									echo "<th>Action</th>";
 								echo "</tr>";
 							echo "</thead>";
 							echo "<tbody>";
@@ -101,11 +100,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 									echo "<td>" . $row['last_name'] . "</td>";
 									echo "<td>" . $row['email'] . "</td>";
 									echo "<td>" . $row['gp_name'] . "</td>";
-									echo "<td>";
-										echo "<a href='read.php?email=". $row['email'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-										echo "<a href='update.php?email=". $row['email'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-										echo "<a href='delete.php?email=". $row['email'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
-									echo "</td>";
 								echo "</tr>";
 							}
 							echo "</tbody>";                            

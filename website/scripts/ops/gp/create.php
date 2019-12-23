@@ -153,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$param_email = $email;
 			$param_password = password_hash($password, PASSWORD_DEFAULT);
             
-            // Attempt to execute the prepared statement
+				// Attempt to execute the prepared statement
 				if(mysqli_stmt_execute($stmt)){
 					
 					// Prepare an insert statement
