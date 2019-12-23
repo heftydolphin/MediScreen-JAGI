@@ -69,13 +69,15 @@ public class UserHome extends AppCompatActivity {
             addGPButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent addGPActivity = new Intent(getApplicationContext(), AddGP.class);
+                    startActivity(addGPActivity);
                 }
             });
             addInsurerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent addInsurerActivity = new Intent(getApplicationContext(), AddInsurer.class);
+                    startActivity(addInsurerActivity);
                 }
             });
             medicalHistoryButton.setOnClickListener(new View.OnClickListener() {

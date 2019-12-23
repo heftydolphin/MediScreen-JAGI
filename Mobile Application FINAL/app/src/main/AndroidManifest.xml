@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MedicalHistory"></activity>
+        <activity android:name=".Support"></activity>
+        <activity android:name=".ContactProfessional" />
+        <activity android:name=".AddInsurer" />
+        <activity android:name=".AddGP" />
+        <activity android:name=".MedicalHistory" />
         <activity android:name=".UserDetails" />
         <activity android:name=".UserHome" />
         <activity android:name=".Register" />

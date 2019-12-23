@@ -19,6 +19,14 @@
     <string name="review">Rate and Review</string>
     <string name="support">Support</string>
 
+    // ADD GP PAGE
+    <string name="searchForGPTextView">Enter your General Practitioners email address:</string>
+    <string name="addGPTextView">Medical History</string>
+
+    // ADD INSURER PAGE
+    <string name="searchForInsurerTextView">Enter your Insurers email address:</string>
+    <string name="addInsurerTextView">Medical History</string>
+
     // MEDICAL HISTORY OPTIONS
     <string name="gender">Gender</string>
     <string name="age">Age Group</string>
@@ -30,6 +38,8 @@
     <string name="bloodPressure">Have You Ever Taken Medication For High Blood Pressure</string>
     <string name="height">Height In cm (Centimeters)</string>
     <string name="weight">Weight In lb (Pounds)</string>
+
+
 
     // MEDICAL FORM ARRAYS
     <string-array name="genderArray">
@@ -51,10 +61,13 @@
         <item>No</item>
     </string-array>
 
+
     // PAGE TITLES
     <string name="homePage">Welcome To Your Home Page</string>
     <string name="accountDetailsPage">Account Details</string>
     <string name="medicalHistoryPage">Medical History</string>
+    <string name="addGPTitle">Link Your GP to your account</string>
+    <string name="addInsurerTitle">Link Your Insurer to your account</string>
 
     // BUTTONS
     <string name="login">Login</string>
@@ -63,10 +76,11 @@
     <string name="save">Save</string>
     <string name="saveChanges">Save Changes</string>
     <string name="deleteAccount">Delete Account</string>
+    <string name="searchGPButton">Search For GP</string>
+    <string name="searchInsurerButton">Search For Insurer</string>
 
     // IMAGES
     <string name="logo">JAGI Team Logo</string>
-
 
 
 </resources>
