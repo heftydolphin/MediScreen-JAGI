@@ -14,8 +14,6 @@ public class Support extends AppCompatActivity {
     EditText subjectEditText;
     EditText contentEditText;
 
-
-
     Spinner professionSpinner;
 
     Button sendFormButton;
