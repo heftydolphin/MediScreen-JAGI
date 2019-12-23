@@ -62,6 +62,7 @@
     <string name="register">Register</string>
     <string name="save">Save</string>
     <string name="saveChanges">Save Changes</string>
+    <string name="deleteAccount">Delete Account</string>
 
     // IMAGES
     <string name="logo">JAGI Team Logo</string>

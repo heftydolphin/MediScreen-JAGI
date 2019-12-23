@@ -46,7 +46,8 @@ public class UserDetails extends AppCompatActivity {
     private String memberNumber;
     private String policyNumber;
 
-    Button saveChangesButton;
+    private Button saveChangesButton;
+    private Button deleteAccountButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class UserDetails extends AppCompatActivity {
 
         user = SharedPrefManager.getInstance(this).getUser();
         emailHolder = user.getEmail();
+        System.out.println(emailHolder);
 
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
@@ -81,7 +83,114 @@ public class UserDetails extends AppCompatActivity {
                 updateUser();
             }
         });
+
+        deleteAccountButton = findViewById(R.id.deleteAccountButton);
+
+        deleteAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popUp();
+            }
+        });
     }
+
+    private void deleteUser(){
+
+        String URL = "http://192.168.43.216/Mobile_Application_Backend/deleteUser.php";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Toast.makeText(getApplicationContext(), "ERROR: Delete failed  " + response, Toast.LENGTH_LONG).show();
+                System.out.println("RESPONSE" + response);
+
+                // System.err:  org.json.JSONException: Value dbConnect.php of type java.lang.String cannot be converted to JSONObject
+                // Can't figure out how to fix this but the data is stored in database successfully
+                try{
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    String success = jsonObject.getString("success");
+
+                    //--------------------- 1 OR "1" ?-------------------
+                    if(success.equals("1")){
+
+                        System.out.println("RESPONSE" + response);
+
+                        SharedPrefManager.getInstance(getApplicationContext()).logout();
+
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                        Toast.makeText(getApplicationContext(), "ACCOUNT DELETED PERMANENTLY", Toast.LENGTH_LONG).show();
+
+                    }
+                    else{
+                        System.out.println("RESPONSE 2 - " + response);
+
+
+                        Toast.makeText(getApplicationContext(), "User could not be found in database", Toast.LENGTH_LONG).show();
+                    }
+                }
+                catch (JSONException e){
+                    e.printStackTrace();
+                    System.out.println("RESPONSE 3 - " + response);
+                }
+                Toast.makeText(getApplicationContext(), "SERVER RESPONSE: " + response, Toast.LENGTH_LONG).show();
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getApplicationContext(), "ERROR: " + error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() {
+
+                user = SharedPrefManager.getInstance(getApplicationContext()).getUser();
+                String email = user.getEmail();
+
+
+                Map<String, String> params = new HashMap<>();
+
+                System.out.println("Send parameter to backend" + email);
+
+                params.put("email", email);
+
+                return params;
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+
+    private void popUp(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle("DELETE ACCOUNT PERMANENTLY");
+        builder.setMessage("Are you sure you would like to delete your account from the JAGI Application?\n" +
+                "There will be no way to recover your account if you proceed.");
+        builder.setPositiveButton("Confirm",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteUser();
+                    }
+                });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
 
     private void updateUser() {
 
@@ -128,7 +237,7 @@ public class UserDetails extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "REGISTRATION SUCCESSFUL", Toast.LENGTH_LONG).show();
                     }
                     else{
-                        System.out.println("RESPONSeeeE" + response);
+                        System.out.println("RESPONSE 2 - " + response);
 
 
                         Toast.makeText(getApplicationContext(), "Email and Password didn't match", Toast.LENGTH_LONG).show();
@@ -136,7 +245,7 @@ public class UserDetails extends AppCompatActivity {
                 }
                 catch (JSONException e){
                     e.printStackTrace();
-                    System.out.println("RESPONSE" + response);
+                    System.out.println("RESPONSE 3 - " + response);
                 }
                 Toast.makeText(getApplicationContext(), "SERVER RESPONSE: " + response, Toast.LENGTH_LONG).show();
             }
@@ -144,9 +253,6 @@ public class UserDetails extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
-
-                System.out.println("gggggg" );
 
                 Toast.makeText(getApplicationContext(), "ERROR: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
@@ -157,13 +263,15 @@ public class UserDetails extends AppCompatActivity {
 
                 Map<String, String> params = new HashMap<>();
 
-                params.put("emailHolder", emailHolder);
+                System.out.println("Send parameters to backend");
+
                 params.put("email", email);
                 params.put("password", password);
                 params.put("fName", fName);
                 params.put("lName", lName);
-                params.put("memberNumber", memberNumber);
-                params.put("policyNumber", policyNumber);
+                params.put("memberNum", memberNumber);
+                params.put("policyNum", policyNumber);
+                params.put("emailHolder", emailHolder);
 
                 return params;
             }
@@ -175,6 +283,7 @@ public class UserDetails extends AppCompatActivity {
     public void populateFields(){
 
         emailEditText.setText(user.getEmail());
+        passwordEditText.setText(user.getPassword());
         fNameEditText.setText(user.getfName());
         lNameEditText.setText(user.getlName());
         memberNumberEditText.setText(user.getMemberNumber());

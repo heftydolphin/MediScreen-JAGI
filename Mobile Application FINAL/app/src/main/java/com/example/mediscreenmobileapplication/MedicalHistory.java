@@ -113,6 +113,8 @@ public class MedicalHistory extends AppCompatActivity {
                     }
                     else{
 
+                        System.out.println("RESPONSE 1 - " + response);
+
                         Toast.makeText(getApplicationContext(), "ERROR: Registration failed  ", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -137,12 +139,12 @@ public class MedicalHistory extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
 
                 params.put("gender", gender);
-                params.put("age", age);
+                params.put("ageGroup", age);
                 params.put("exercise", exercise);
-                params.put("bloodPressure", bloodPressure);
                 params.put("pastConditions", pastConditions);
                 params.put("glucose", glucose);
                 params.put("familyHistory", familyHistory);
+                params.put("bloodPressure", bloodPressure);
                 params.put("cholesterol", cholesterol);
                 params.put("height", height);
                 params.put("weight", weight);
@@ -162,7 +164,7 @@ public class MedicalHistory extends AppCompatActivity {
     public void getUserInput(){
 
         // Get the values of the user input
-        gender = genderSpinner.getSelectedItem().toString();
+        gender = genderSpinner.getSelectedItem().toString();;
         age = ageSpinner.getSelectedItem().toString();
         exercise = exerciseSpinner.getSelectedItem().toString();
         bloodPressure = bloodPressureSpinner.getSelectedItem().toString();
@@ -173,6 +175,17 @@ public class MedicalHistory extends AppCompatActivity {
 
         height = heightEditText.getText().toString();
         weight = weightEditText.getText().toString();
+
+        System.out.println("\nGender: " + gender +
+                "\nAge: " + age +
+                "\nExercise: " + exercise +
+                "\nBlood Pressure: " + bloodPressure +
+                "\nPast Conditions: " + pastConditions +
+                "\nGlucose: " + glucose +
+                "\nFamily History: " + familyHistory +
+                "\nCholesterol: " + cholesterol +
+                "\nHeight: " + height +
+                "\nWeight: " + weight);
 
     }
     public boolean validate(){
