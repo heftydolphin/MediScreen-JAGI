@@ -2,8 +2,8 @@
 A repository used by JAGI team to develop a system including a website, a mobile application and AI models.
 
 PROJECT SCOPE:
-●	Develop a website that’s users are GP’s and insurance professionals which stores patient records and enables insurers to make
-  decisions about insurance plans and medical professionals to give advice, based on patients’ risk profiles. 
+●	Develop a website that user's are GP and insurance staff and patients stored and retrieved the records for uses. The insurers can us it to make a
+  decisions about the insurance, plans they may want to applied for and medical professionals to give advice, based on patients’ risk profiles. 
 ●	Develop a mobile application to be used by clients of the insurance company that enables them to calculate the likelihood of
   contracting hearth disease and/or diabetes based on their lifestyle and previous medical history.
 ●	Develop, using machine learning and publicly available datasets, an AI interface for the mobile application and website, that 
